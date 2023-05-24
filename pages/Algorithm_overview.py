@@ -1,6 +1,11 @@
 import pandas as pd
 import streamlit as st
 
+try:
+    st.set_page_config(layout="wide", page_title="Reinforcement Learning Lecture Notes")
+except:
+    pass
+
 #st.markdown(
 #    """
 #    | Algorithms              | Model-based vs Model-free | On-policy vs Off-policy | Deep vs Shallow | Sample-based vs Tree-based | Tabular vs Function Approximation | Target Function Q vs V | Update Formula | Paradigm | Control vs Prediction | TD-Based |

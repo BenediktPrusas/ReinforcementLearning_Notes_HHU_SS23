@@ -1,5 +1,10 @@
 import streamlit as st
 
+try:
+    st.set_page_config(layout="wide", page_title="Reinforcement Learning Lecture Notes")
+except:
+    pass
+
 st.markdown("""
 # Reinforcement Learning Lecture SS23
 

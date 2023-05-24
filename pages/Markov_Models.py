@@ -1,6 +1,11 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+try:
+    st.set_page_config(layout="wide", page_title="Reinforcement Learning Lecture Notes")
+except:
+    pass
+
 def mermaid(code: str, height: int = 500) -> None:
     """Renders a mermaid diagram."""
     components.html(
