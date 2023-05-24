@@ -6,45 +6,169 @@ try:
 except:
     pass
 
-#st.markdown(
-#    """
-#    | Algorithms              | Model-based vs Model-free | On-policy vs Off-policy | Deep vs Shallow | Sample-based vs Tree-based | Tabular vs Function Approximation | Target Function Q vs V | Update Formula | Paradigm | Control vs Prediction | TD-Based |
-#|-------------------------|---------------------------|-------------------------|-----------------|----------------------------|-----------------------------------|------------------------|----------------|----------|----------------------|----------|
-#| Monte Carlo Control     | Model-free                | On-policy               | Deep     | Sample-based                | Can be both                        | Q                      | Q(s, a) &larr; Q(s, a) + α[Gt - Q(s, a)] | Monte Carlo | Control | No       |
-#| Monte Carlo Policy Evaluation | Model-free | On-policy | Deep | Sample-based | Can be both | V | V(s) &larr; V(s) + α[Gt - V(s)] | Monte Carlo | Prediction | No       |
-#| SARSA                 | Model-free                | On-policy               | Shallow     | Sample-based                | Can be both                        | Q                      | Q(s, a) &larr; Q(s, a) + α[R + γQ(s', a') - Q(s, a)] | Temporal Difference | Can be both | Yes      |
-#| Q-Learning             | Model-free                | Off-policy              | Shallow     | Sample-based                | Can be both                        | Q                      | Q(s, a) &larr; Q(s, a) + α[R + γ max_a' Q(s', a') - Q(s, a)] | Temporal Difference | Can be both | Yes      |
-#| Q-Value Iteration      | Model-based               | Off-policy              | Shallow     | Tree-based                  | Can be both                        | Q                      | Q(s, a) &larr; Σ_s' P(s'|s, a) [R + γ max_a' Q(s', a')] | Dynamic Programming | Control | No       |
-#| Q-Policy Iteration     | Model-based               | Can be both             | Shallow     | Tree-based                  | Can be both                        | Q                      | Q(s, a) &larr; Σ_s' P(s'|s, a) [R + γ Q(s', π(s'))] | Dynamic Programming | Control | No       |
-#| TD(0)                  | Model-free                | On-policy               | Shallow     | Sample-based                | Can be both                        | Can be both            | V(s) &larr; V(s) + α[R + γV(s') - V(s)] (for V) <br> Q(s, a) &larr; Q(s, a) + α[R + γQ(s', a') - Q(s, a)] (for Q) | Temporal Difference | Can be both | Yes      |
-#| Iterative Policy Evaluation | Model-based | On-policy | Deep | Tree-based | Can be both | V | V(s) &larr; Σ_a π(a&#124;s) Σ_s',r P(s', r&#124;s, a) [r + γV(s')] | Dynamic Programming | Prediction | No       |
-#
-#    """
-#)
-st.warning("This is just ChatGpt autoput, i didn't verify the correctness of the table.")
-
-data = {
-    "Algorithms": ["Monte Carlo Control", "Monte Carlo Policy Evaluation", "SARSA", "Q-Learning", "Q-Value Iteration", "Q-Policy Iteration", "TD(0)", "Iterative Policy Evaluation"],
-    "Model-based vs Model-free": ["Model-free", "Model-free", "Model-free", "Model-free", "Model-based", "Model-based", "Model-free", "Model-based"],
-    "On-policy vs Off-policy": ["On-policy", "On-policy", "On-policy", "Off-policy", "Off-policy", "Can be both", "On-policy", "On-policy"],
-    "Deep vs Shallow": ["Deep", "Deep", "Shallow", "Shallow", "Shallow", "Shallow", "Shallow", "Deep"],
-    "Sample-based vs Tree-based": ["Sample-based", "Sample-based", "Sample-based", "Sample-based", "Tree-based", "Tree-based", "Sample-based", "Tree-based"],
-    "Target Function Q vs V": ["Q", "V", "Q", "Q", "Q", "Q", "Can be both", "V"],
-    "Update Formula": [
-        "Q(s, a) ← Q(s, a) + α[Gt - Q(s, a)]",
-        "V(s) ← V(s) + α[Gt - V(s)]",
-        "Q(s, a) ← Q(s, a) + α[R + γQ(s', a') - Q(s, a)]",
-        "Q(s, a) ← Q(s, a) + α[R + γ max_a' Q(s', a') - Q(s, a)]",
-        "Q(s, a) ← Σ_s' P(s'|s, a) [R + γ max_a' Q(s', a')]",
-        "Q(s, a) ← Σ_s' P(s'|s, a) [R + γ Q(s', π(s'))]",
-        "V(s) ← V(s) + α[R + γV(s') - V(s)] (for V) \n Q(s, a) ← Q(s, a) + α[R + γQ(s', a') - Q(s, a)] (for Q)",
-        "V(s) ← Σ_a π(a|s) Σ_s',r P(s', r|s, a) [r + γV(s')]"
-    ],
-    "Paradigm": ["Monte Carlo", "Monte Carlo", "Temporal Difference", "Temporal Difference", "Dynamic Programming", "Dynamic Programming", "Temporal Difference", "Dynamic Programming"],
-    "Control vs Prediction": ["Control", "Prediction", "Can be both", "Can be both", "Control", "Control", "Can be both", "Prediction"],
+# Monte Carlo ---------------------------------------------------------------
+algo_mcc = {
+    "Algorithm": "Monte Carlo Control",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow": "Deep",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "Q",
+    "Update Formula": "Q(s, a) ← Q(s, a) + α[Gt - Q(s, a)]",
+    "Paradigm": "Monte Carlo",
 }
 
-df = pd.DataFrame(data)
-df = df.set_index("Algorithms")
+algo_mcpe = {
+    "Algorithm": "Monte Carlo Policy Evaluation",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow": "Deep",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "V",
+    "Update Formula": "V(s) ← V(s) + α[Gt - V(s)]",
+    "Paradigm": "Monte Carlo",
+}
 
+algo_mcc_importance_sampling = {
+    "Algorithm": "Monte Carlo Control with importance sampling",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "Off-policy",
+    "Deep vs Shallow": "Deep",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "Q",
+    "Update Formula": "Q(s, a) ← Q(s, a) + α[ρt*Gt - Q(s, a)]",
+    "Paradigm": "Monte Carlo",
+}
+
+algo_mcpe_importance_sampling = {
+    "Algorithm": "Monte Carlo Policy Evaluation with importance sampling",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "Off-policy",
+    "Deep vs Shallow": "Deep",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "V",
+    "Update Formula": "V(s) ← V(s) + α[ρt*Gt - V(s)]",
+    "Paradigm": "Monte Carlo",
+}
+# Dynamic Programming ---------------------------------------------------------------
+
+algo_iterative_policy_evaluation = {
+    "Algorithm": "Iterative Policy Evaluation",
+    "Model-based vs Model-free": "Model-based",
+    "On-policy vs Off-policy": "Learns from the model not experience",
+    "Deep vs Shallow": "Shallow",
+    "Sample-based vs Tree-based": "Tree-based",
+    "Target Function Q vs V": "V",
+    "Update Formula": "V(s) ← Σ_a π(a|s) Σ_s',r P(s', r|s, a) [r + γV(s')]",
+    "Paradigm": "Dynamic Programming",
+}
+
+algo_value_iteration = {
+    "Algorithm": "Value Iteration",
+    "Model-based vs Model-free": "Model-based",
+    "On-policy vs Off-policy": "Learns from the model not experience",
+    "Deep vs Shallow": "Shallow",
+    "Sample-based vs Tree-based": "Tree-based",
+    "Target Function Q vs V": "V",
+    "Update Formula": "V(s) ← max_a Σ_s',r P(s', r|s, a) [r + γV(s')]",
+    "Paradigm": "Dynamic Programming",
+}
+
+algo_policy_iteration = {
+    "Algorithm": "Policy Iteration",
+    "Model-based vs Model-free": "Model-based",
+    "On-policy vs Off-policy": "Learns from the model not experience",
+    "Deep vs Shallow": "Shallow",
+    "Sample-based vs Tree-based": "Tree-based",
+    "Target Function Q vs V": "V",
+    "Update Formula": "V(s) ← Σ_a π(a|s) Σ_s',r P(s', r|s, a) [r + γV(s')]",
+    "Paradigm": "Dynamic Programming",
+}
+
+# Temporal Difference ---------------------------------------------------------------
+
+algo_td0 = {
+    "Algorithm": "TD(0)",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow": "Shallow",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "V",
+    "Update Formula": "V(s) ← V(s) + α[R_t+1 + γV(s') - V(s)]",
+    "Paradigm": "Temporal Difference",
+}
+
+algo_sarsa = {
+    "Algorithm": "SARSA",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow": "Shallow",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "Q",
+    "Update Formula": "Q(s, a) ← Q(s, a) + α[R_t+1 + γQ(s', a') - Q(s, a)]",
+    "Paradigm": "Temporal Difference",
+}
+
+algo_q_learning = {
+    "Algorithm": "Q-Learning",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "Off-policy",
+    "Deep vs Shallow": "Shallow",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "Q",
+    "Update Formula": "Q(s, a) ← Q(s, a) + α[R_t+1 + γmax_a' Q(s', a') - Q(s, a)]",
+    "Paradigm": "Temporal Difference",
+}
+
+algo_double_q_learning = {
+    "Algorithm": "Double Q-Learning",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "Off-policy",
+    "Deep vs Shallow": "Shallow",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "Q",
+    "Update Formula": "Q_1(s, a) ← Q_1(s, a) + α[R_t+1 + γQ_1(s', argmax_a' Q_2(s', a')) - Q_2(s, a)]",
+    "Paradigm": "Temporal Difference",
+}
+
+
+# List of all algorithms
+algos = [algo_mcc,
+         algo_mcpe,
+         algo_mcc_importance_sampling,
+         algo_mcpe_importance_sampling,
+         algo_iterative_policy_evaluation,
+         algo_value_iteration,
+         algo_policy_iteration,
+         algo_td0,
+         algo_sarsa,
+         algo_q_learning,
+         algo_double_q_learning]
+
+# Create the DataFrame
+df = pd.DataFrame(algos)
+df = df.set_index("Algorithm")
 st.dataframe(df, use_container_width=True)
+
+st.markdown("""
+# Notes & Observations
+### General
+* On-policy is a special case of off-policy, where the $\mu$ and $\pi$ are the same. So every on-policy algorithm can be used as off-policy algorithm, but not vice versa.
+* If we target the Q function, we can use the algorithm for control, by choosing the action with the highest Q value. If we target the V function, we can use the algorithm for only for prediction.
+
+### Monte Carlo
+* Monte Carlo algorithms are model-free, because they don't need the transition probabilities and rewards.
+* They do deep backups, they always see the whole episode, before they update the the Q or V function. This is why they they are inefficient, they need a only do one update per episode.
+* They are sample-based, because they only use the samples from the environment.
+* They don't use the markov property, so they work with non-markov environments.
+
+### Dynamic Programming
+* Dynamic Programming algorithms are model-based, because they follow the Bellman equation, which requires the transition probabilities and rewards.
+* They do tree-based or full-backups, because they use the whole tree of possible states. And they can only do this, because they are model-based.
+
+### Temporal Difference
+* Temporal Difference algorithms are model-free, because they don't need the transition probabilities and rewards.
+* But they implicitly learn a model of the MDP, because they use the Bellman equation. This is why they are considered biased.
+* They update the Q or V function after every step, this is why they are more efficient than Monte Carlo algorithms.
+
+""")
