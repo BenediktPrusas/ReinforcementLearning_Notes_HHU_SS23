@@ -120,6 +120,17 @@ algo_q_learning = {
     "Paradigm": "Temporal Difference",
 }
 
+algo_td_lambda = {
+    "Algorithm": "TD(λ)",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow": "Something in between",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "V",
+    "Update Formula": "V(s) ← V(s) + αδt Et[s]",
+    "Paradigm": "Temporal Difference",
+}
+
 algo_double_q_learning = {
     "Algorithm": "Double Q-Learning",
     "Model-based vs Model-free": "Model-free",
@@ -130,6 +141,18 @@ algo_double_q_learning = {
     "Update Formula": "Q_1(s, a) ← Q_1(s, a) + α[R_t+1 + γQ_1(s', argmax_a' Q_2(s', a')) - Q_2(s, a)]",
     "Paradigm": "Temporal Difference",
 }
+
+algo_dynaq = {
+    "Algorithm": "Dyna-Q",
+    "Model-based vs Model-free": "Model-based",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow": "Shallow",
+    "Sample-based vs Tree-based": "Sample-based",
+    "Target Function Q vs V": "Q",
+    "Update Formula": "Q(s, a) ← Q(s, a) + α[R_t+1 + γmax_a' Q(s', a') - Q(s, a)]",
+    "Paradigm": "Temporal Difference",
+}
+
 
 
 # List of all algorithms
