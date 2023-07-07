@@ -11,9 +11,9 @@ algo_mcc = {
     "Algorithm": "Monte Carlo Control",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "On-policy",
-    "Deep vs Shallow": "Deep",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "Q",
+    "Deep vs Shallow Update": "Deep",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "Q",
     "Update Formula": "Q(s, a) ← Q(s, a) + α[Gt - Q(s, a)]",
     "Paradigm": "Monte Carlo",
 }
@@ -22,9 +22,9 @@ algo_mcpe = {
     "Algorithm": "Monte Carlo Policy Evaluation",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "On-policy",
-    "Deep vs Shallow": "Deep",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "V",
+    "Deep vs Shallow Update": "Deep",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "V",
     "Update Formula": "V(s) ← V(s) + α[Gt - V(s)]",
     "Paradigm": "Monte Carlo",
 }
@@ -33,9 +33,9 @@ algo_mcc_importance_sampling = {
     "Algorithm": "Monte Carlo Control with importance sampling",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "Off-policy",
-    "Deep vs Shallow": "Deep",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "Q",
+    "Deep vs Shallow Update": "Deep",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "Q",
     "Update Formula": "Q(s, a) ← Q(s, a) + α[ρt*Gt - Q(s, a)]",
     "Paradigm": "Monte Carlo",
 }
@@ -44,9 +44,9 @@ algo_mcpe_importance_sampling = {
     "Algorithm": "Monte Carlo Policy Evaluation with importance sampling",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "Off-policy",
-    "Deep vs Shallow": "Deep",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "V",
+    "Deep vs Shallow Update": "Deep",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "V",
     "Update Formula": "V(s) ← V(s) + α[ρt*Gt - V(s)]",
     "Paradigm": "Monte Carlo",
 }
@@ -56,9 +56,9 @@ algo_iterative_policy_evaluation = {
     "Algorithm": "Iterative Policy Evaluation",
     "Model-based vs Model-free": "Model-based",
     "On-policy vs Off-policy": "Learns from the model not experience",
-    "Deep vs Shallow": "Shallow",
-    "Sample-based vs Tree-based": "Tree-based",
-    "Target Function Q vs V": "V",
+    "Deep vs Shallow Update": "Shallow",
+    "Sample-based vs Tree-based Update": "Tree-based",
+    "Target Function(s)": "V",
     "Update Formula": "V(s) ← Σ_a π(a|s) Σ_s',r P(s', r|s, a) [r + γV(s')]",
     "Paradigm": "Dynamic Programming",
 }
@@ -67,9 +67,9 @@ algo_value_iteration = {
     "Algorithm": "Value Iteration",
     "Model-based vs Model-free": "Model-based",
     "On-policy vs Off-policy": "Learns from the model not experience",
-    "Deep vs Shallow": "Shallow",
-    "Sample-based vs Tree-based": "Tree-based",
-    "Target Function Q vs V": "V",
+    "Deep vs Shallow Update": "Shallow",
+    "Sample-based vs Tree-based Update": "Tree-based",
+    "Target Function(s)": "V",
     "Update Formula": "V(s) ← max_a Σ_s',r P(s', r|s, a) [r + γV(s')]",
     "Paradigm": "Dynamic Programming",
 }
@@ -78,9 +78,9 @@ algo_policy_iteration = {
     "Algorithm": "Policy Iteration",
     "Model-based vs Model-free": "Model-based",
     "On-policy vs Off-policy": "Learns from the model not experience",
-    "Deep vs Shallow": "Shallow",
-    "Sample-based vs Tree-based": "Tree-based",
-    "Target Function Q vs V": "V",
+    "Deep vs Shallow Update": "Shallow",
+    "Sample-based vs Tree-based Update": "Tree-based",
+    "Target Function(s)": "V",
     "Update Formula": "V(s) ← Σ_a π(a|s) Σ_s',r P(s', r|s, a) [r + γV(s')]",
     "Paradigm": "Dynamic Programming",
 }
@@ -91,9 +91,9 @@ algo_td0 = {
     "Algorithm": "TD(0)",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "On-policy",
-    "Deep vs Shallow": "Shallow",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "V",
+    "Deep vs Shallow Update": "Shallow",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "V",
     "Update Formula": "V(s) ← V(s) + α[R_t+1 + γV(s') - V(s)]",
     "Paradigm": "Temporal Difference",
 }
@@ -102,9 +102,9 @@ algo_sarsa = {
     "Algorithm": "SARSA",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "On-policy",
-    "Deep vs Shallow": "Shallow",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "Q",
+    "Deep vs Shallow Update": "Shallow",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "Q",
     "Update Formula": "Q(s, a) ← Q(s, a) + α[R_t+1 + γQ(s', a') - Q(s, a)]",
     "Paradigm": "Temporal Difference",
 }
@@ -113,9 +113,9 @@ algo_q_learning = {
     "Algorithm": "Q-Learning",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "Off-policy",
-    "Deep vs Shallow": "Shallow",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "Q",
+    "Deep vs Shallow Update": "Shallow",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "Q",
     "Update Formula": "Q(s, a) ← Q(s, a) + α[R_t+1 + γmax_a' Q(s', a') - Q(s, a)]",
     "Paradigm": "Temporal Difference",
 }
@@ -124,9 +124,9 @@ algo_td_lambda = {
     "Algorithm": "TD(λ)",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "On-policy",
-    "Deep vs Shallow": "Something in between",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "V",
+    "Deep vs Shallow Update": "Something in between",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "V",
     "Update Formula": "V(s) ← V(s) + αδt Et[s]",
     "Paradigm": "Temporal Difference",
 }
@@ -135,9 +135,9 @@ algo_double_q_learning = {
     "Algorithm": "Double Q-Learning",
     "Model-based vs Model-free": "Model-free",
     "On-policy vs Off-policy": "Off-policy",
-    "Deep vs Shallow": "Shallow",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "Q",
+    "Deep vs Shallow Update": "Shallow",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "Q",
     "Update Formula": "Q_1(s, a) ← Q_1(s, a) + α[R_t+1 + γQ_1(s', argmax_a' Q_2(s', a')) - Q_2(s, a)]",
     "Paradigm": "Temporal Difference",
 }
@@ -146,12 +146,83 @@ algo_dynaq = {
     "Algorithm": "Dyna-Q",
     "Model-based vs Model-free": "Model-based",
     "On-policy vs Off-policy": "On-policy",
-    "Deep vs Shallow": "Shallow",
-    "Sample-based vs Tree-based": "Sample-based",
-    "Target Function Q vs V": "Q",
+    "Deep vs Shallow Update": "Shallow",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "Q",
     "Update Formula": "Q(s, a) ← Q(s, a) + α[R_t+1 + γmax_a' Q(s', a') - Q(s, a)]",
     "Paradigm": "Temporal Difference",
 }
+
+# Policy Gradient ---------------------------------------------------------------
+
+algo_reinforce = {
+    "Algorithm": "REINFORCE",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow Update": "N/A",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "π",
+    "Update Formula": "Δθ = α ∇θ log π(a|s) G_t",
+    "Paradigm": "Policy Gradient",
+}
+
+# Actor-Critic ---------------------------------------------------------------
+
+algo_q_actor_critic = {
+    "Algorithm": "Q Actor-Critic",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow Update": "N/A",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "π, Q",
+    "Update Formula": "Δθ = α ∇θ log π(a|s) Q(s,a)",
+    "Paradigm": "Policy Gradient",
+}
+
+algo_advantage_actor_critic = {
+    "Algorithm": "Advantage Actor-Critic",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow Update": "N/A",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "π, Q, V",
+    "Update Formula": "Δθ = α ∇θ log π(a|s) A(s,a)",
+    "Paradigm": "Policy Gradient",
+}
+
+algo_td_actor_critic = {
+    "Algorithm": "TD Actor-Critic",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow Update": "N/A",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "V",
+    "Update Formula": "Δθ = α ∇θ log π(a|s) δ",
+    "Paradigm": "Policy Gradient",
+}
+
+algo_td_lambda_actor_critic = {
+    "Algorithm": "TD(λ) Actor-Critic",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow Update": "N/A",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "V",
+    "Update Formula": "Δθ = α ∇θ log π(a|s) δ_t E_t[s]",
+    "Paradigm": "Policy Gradient",
+}
+
+algo_natural_actor_critic = {
+    "Algorithm": "Natural Actor-Critic",
+    "Model-based vs Model-free": "Model-free",
+    "On-policy vs Off-policy": "On-policy",
+    "Deep vs Shallow Update": "N/A",
+    "Sample-based vs Tree-based Update": "Sample-based",
+    "Target Function(s)": "Both",
+    "Update Formula": "Δθ = α F^-1 ∇θ log π(a|s) δ",
+    "Paradigm": "Policy Gradient",
+}
+
 
 
 
