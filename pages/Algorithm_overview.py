@@ -237,7 +237,13 @@ algos = [algo_mcc,
          algo_td0,
          algo_sarsa,
          algo_q_learning,
-         algo_double_q_learning]
+         algo_double_q_learning,
+         algo_reinforce,
+         algo_q_actor_critic,
+         algo_advantage_actor_critic,
+         algo_td_actor_critic,
+         algo_td_lambda_actor_critic,
+         algo_natural_actor_critic,]
 
 # Create the DataFrame
 df = pd.DataFrame(algos)
